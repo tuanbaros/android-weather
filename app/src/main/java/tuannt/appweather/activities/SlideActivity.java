@@ -234,6 +234,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
 
             @Override
             public void onPageScrollStateChanged(int state) {
+                thirdFragment.onPause();
                 if (state != ViewPager.SCROLL_STATE_IDLE) {
                     final int childCount = viewPager.getChildCount();
                     for (int i = 0; i < childCount; i++)
@@ -376,7 +377,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
 
     @Override
     public void onBackPressed() {
-        if(Variables.isFullScreen == false) {
+        if(!thirdFragment.isFullScreen()) {
             if (viewPager.getCurrentItem() == 0) {
                 // If the user is currently looking at the first step, allow the system to handle the
                 // Back button. This calls finish() on this activity and pops the back stack.
@@ -397,11 +398,9 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
                         }).start();
                     } else {
                         super.onBackPressed();
-//                    Variables.canRefresh = false;
                     }
                 } else {
                     llSearchLocation.setVisibility(View.GONE);
-//                flipCard();
                 }
             } else {
                 // Otherwise, select the previous step.
@@ -414,7 +413,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
 
 
     private class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+        ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -430,9 +429,8 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
                 case 1: return firstFragment;
                 case 2: return secondFragment;
                 case 3: return thirdFragment;
+                default: return null;
             }
-            return null;
-
         }
 
         @Override
@@ -531,7 +529,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
                 break;
             case 2:
                 tvTime.setVisibility(View.VISIBLE);
-                tvTime.setText("5 ngày tiếp theo");
+                tvTime.setText("6 ngày tiếp theo");
                 tvLocation.setVisibility(View.GONE);
                 Variables.tvCity.setVisibility(View.VISIBLE);
                 ivRefresh.setImageResource(R.drawable.refresh);

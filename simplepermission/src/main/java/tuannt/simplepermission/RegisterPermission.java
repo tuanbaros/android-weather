@@ -1,4 +1,4 @@
-package tuannt.appweather.permission;
+package tuannt.simplepermission;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

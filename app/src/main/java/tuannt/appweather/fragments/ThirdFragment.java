@@ -24,15 +24,17 @@ import tuannt.appweather.utils.Variables;
  */
 public class ThirdFragment extends Fragment{
 
-    public YouTubePlayer youTubePlayer;
+    private YouTubePlayer youTubePlayer;
 
-    private Bundle bundle;
+    private boolean isFullScreen;
+
+    public boolean isFullScreen() {
+        return isFullScreen;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_slide_page3, container, false);
-
-        Variables.isFullScreen = false;
 
         final YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
 
@@ -55,13 +57,7 @@ public class ThirdFragment extends Fragment{
                     youTubePlayer.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                         @Override
                         public void onFullscreen(boolean arg0) {
-                            if (Variables.isFullScreen == true) {
-                                getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                                Variables.isFullScreen = false;
-                            }else{
-                                youTubePlayer.setFullscreen(true);
-                                Variables.isFullScreen= true;
-                            }
+                            isFullScreen = arg0;
                         }
                     });
 
@@ -84,22 +80,14 @@ public class ThirdFragment extends Fragment{
     }
 
     public void collapsingVideo(){
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Variables.isFullScreen = false;
-        Variables.pagerAdapter.notifyDataSetChanged();
+        youTubePlayer.setFullscreen(false);
     }
 
-    @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
-        Log.i("Status", "Pause");
+        if (youTubePlayer.isPlaying()) youTubePlayer.pause();
     }
 
-    @Override
-    public void onStop(){
-        super.onStop();
-        Log.i("Status", "Stop");
-    }
 
 
 }

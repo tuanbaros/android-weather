@@ -86,6 +86,5 @@ public class MyMethods {
 
     public static void setMyPageTransformer(int postition, ViewPager viewPager){
             viewPager.setPageTransformer(true, Variables.pageTransformers[postition]);
-
     }
 }
