@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#027ab6"
+    android:id="@+id/mn_activity_root"
+    tools:context="tuannt.appweather.activities.SlideActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/front">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:layout_marginTop="32dp"
+        android:paddingLeft="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hà Nội"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTime"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="17dp"
+            android:id="@+id/ivRefresh"
+            android:src="@drawable/refresh"
+            android:layout_toLeftOf="@+id/ivSetting"
+            android:layout_centerVertical="true"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="15dp"
+            android:id="@+id/ivSetting"
+            android:src="@drawable/setting"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="Vị trí"
+            android:textColor="#fff"
+            android:visibility="gone"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/llbottom"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/llbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        >
+
+        <include
+            android:id="@+id/ivPageFirst"
+            layout="@layout/imageview_page"/>
+
+        <include
+            android:id="@+id/ivPageSecond"
+            layout="@layout/imageview_page"/>
+
+        <include
+            android:id="@+id/ivPageThird"
+            layout="@layout/imageview_page"
+            />
+
+        <include
+            android:id="@+id/ivPageFourth"
+            layout="@layout/imageview_page"
+            />
+
+    </LinearLayout>
+
+    </RelativeLayout>
+    <include
+        android:id="@+id/llSearchLocation"
+        layout="@layout/search_location"
+        android:visibility="gone"/>
+
+</RelativeLayout>

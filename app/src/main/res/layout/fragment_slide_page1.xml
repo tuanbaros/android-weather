@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivSunRays"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_centerHorizontal="true"/>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/ivSunDisc"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignRight="@+id/ivSunRays"-->
+            <!--android:layout_alignLeft="@+id/ivSunRays"-->
+            <!--android:layout_alignBottom="@+id/ivSunRays"-->
+            <!--android:src="@drawable/cloud"-->
+            <!--android:layout_marginBottom="-30dp"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+        <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="19"
+            android:textSize="45sp"
+            android:textColor="#fff"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/ivSunRays"/>
+
+        <include
+            android:id="@+id/rlTempCity"
+            layout="@layout/info_city_weather" />
+
+        <include
+            android:id="@+id/rlMoreCity"
+            layout="@layout/more_city_weather"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="Cập nhật: Vừa xong"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="#fff"/>
+
+
+</RelativeLayout>
