@@ -1,20 +1,30 @@
 package tuannt.appweather.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
  * Created by tuan on 17/02/2016.
  */
 public class Weather implements Serializable {
+    @SerializedName("description")
     private String description;
-    private String temp;
-    private String temp_min;
-    private String temp_max;
-    private String humidity;
-    private String wind_speed;
-    private String city_id;
-    private String city_name;
 
+    private String temp;
+
+    private String temp_min;
+
+    private String temp_max;
+
+    private String humidity;
+
+    private String wind_speed;
+
+    private String city_id;
+
+    private String city_name;
+    @SerializedName("icon")
     private String icon;
 
     public String getIcon() {

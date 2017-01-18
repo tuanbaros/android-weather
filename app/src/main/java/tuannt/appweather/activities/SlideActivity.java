@@ -216,11 +216,8 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
 
         viewPager = (ViewPager)findViewById(R.id.pager);
         Variables.pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-//        Variables.pagerAdapter = new ViewPageAdapter(this);
         viewPager.setAdapter(Variables.pagerAdapter);
         viewPager.setOffscreenPageLimit(NUM_PAGES);
-//        viewPager.setPageTransformer(false, null);
-//        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setCurrentItem(1);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -317,12 +314,6 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
 
                 popup.show();
 
-                if (popup.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener)
-                {
-                    ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popup.getDragToOpenListener();
-                    listener.getPopup().setVerticalOffset(-ivSetting.getHeight());
-                    listener.getPopup().show();
-                }
             }
         });
 
@@ -375,6 +366,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
                         }
                     }
                 }
+                db.close();
                 break;
             }
         }
@@ -595,6 +587,7 @@ public class SlideActivity extends FragmentActivity implements SettingInterface{
             c.moveToPosition(i);
             s[i] = c.getString(1);
         }
+        dbAdapter.close();
         return s;
     }
 

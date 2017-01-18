@@ -35,11 +35,10 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_centerVertical="true"
         android:id="@+id/ivIconStatusWeather"
-        android:src="@drawable/weather_image"
         android:layout_marginRight="30dp"
         android:layout_toLeftOf="@+id/tvMax"/>
 

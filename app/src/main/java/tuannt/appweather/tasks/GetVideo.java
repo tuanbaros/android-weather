@@ -74,6 +74,7 @@ public class GetVideo extends AsyncTask<Void, Void, WeatherVideo[]> {
             if (Variables.canRefresh == false){
                 Intent intent = new Intent(activity, SlideActivity.class);
                 activity.startActivity(intent);
+                dbAdapter.close();
                 activity.finish();
             }else{
                 MyMethods.hideUpdateDialog();

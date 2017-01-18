@@ -1,12 +1,17 @@
 package tuannt.appweather.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by tuan on 19/02/2016.
  */
 public class City {
 
+    @SerializedName("_id")
     private String _id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("id")
     private String id;
 
     public String getId() {

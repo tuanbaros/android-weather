@@ -73,7 +73,8 @@ public class DBAdapter {
     }
 
     public void queryCreateTable(){
-        queryCreateTable = "create table " + tableName +" (" + "_id integer primary key autoincrement";
+        queryCreateTable = "create table " + tableName + " (" + "_id integer primary key " +
+            "autoincrement";
         for(int i = 0; i<column.length; i++) {
             if (i < column.length - 1) {
                 queryCreateTable = queryCreateTable + ", " + column[i] + " " + "text not null";

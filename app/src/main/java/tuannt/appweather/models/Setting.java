@@ -5,7 +5,7 @@ import tuannt.appweather.utils.SettingInterface;
 /**
  * Created by tuan on 23/02/2016.
  */
-public class Setting implements SettingInterface{
+public class Setting implements SettingInterface {
 
     private SettingInterface settingInterface;
 

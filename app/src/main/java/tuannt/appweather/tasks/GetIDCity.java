@@ -3,6 +3,7 @@ package tuannt.appweather.tasks;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -45,6 +46,7 @@ public class GetIDCity extends AsyncTask<String, Void, Void> {
 
             for (City city : cities){
                 dbAdapter.insertRow(new String[]{city.get_id(), MyMethods.capitalize(city.getName())});
+                Log.i("city", city.getName());
             }
 
             dbAdapter.close();

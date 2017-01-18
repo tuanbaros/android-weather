@@ -49,6 +49,7 @@ public class ZeroFragment extends Fragment {
                 MyMethods.showUpdateDialog(getActivity());
                 Variables.reSetLocation = true;
                 new GetCityWeather(getActivity()).execute(API.getApiCurrentCityById(c.getString(0)));
+                dbAdapter.close();
             }
         });
 

@@ -111,6 +111,7 @@ public class LocationAdapter extends BaseAdapter {
 
         }
 
+        dbAdapter.close();
 
         return convertView;
     }
