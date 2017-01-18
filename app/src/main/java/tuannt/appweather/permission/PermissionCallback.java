@@ -1,4 +1,4 @@
-package tuannt.simplepermission;
+package tuannt.appweather.permission;
 
 /**
  * Created by tuannt on 18/01/2017.

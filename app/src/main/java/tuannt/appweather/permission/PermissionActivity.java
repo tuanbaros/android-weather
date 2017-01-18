@@ -1,4 +1,4 @@
-package tuannt.simplepermission;
+package tuannt.appweather.permission;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
