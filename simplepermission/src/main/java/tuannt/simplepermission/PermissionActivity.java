@@ -1,4 +1,4 @@
-package tuannt.appweather.permission;
+package tuannt.simplepermission;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -17,9 +17,9 @@ import java.util.List;
  * Project: AppWeather
  * Package: tuannt.appweather.activities
  */
-public class PermissionActivity extends AppCompatActivity implements PermissionCallBack {
+public class PermissionActivity extends AppCompatActivity implements PermissionCallback {
     private static final int MY_PERMISSIONS_REQUEST = 1;
-    private PermissionCallBack callback;
+    private PermissionCallback mCallback;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class PermissionActivity extends AppCompatActivity implements PermissionC
 
         // check permissions in runtime from Android M (API Level 23)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            callback = this;
+            mCallback = this;
             checkPermissions();
         }
     }
@@ -38,10 +38,10 @@ public class PermissionActivity extends AppCompatActivity implements PermissionC
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // permission was granted
-                callback.onRequestPermissionGranted(permissions, grantResults);
+                mCallback.onRequestPermissionGranted(permissions, grantResults);
             } else {
                 // permission denied
-                callback.onRequestPermissionDenied(permissions, grantResults);
+                mCallback.onRequestPermissionDenied(permissions, grantResults);
             }
         }
     }
@@ -66,7 +66,8 @@ public class PermissionActivity extends AppCompatActivity implements PermissionC
             // request permissions
             List<String> deniedPermissions = getDeniedPermissions(permissions);
             if (!deniedPermissions.isEmpty()) {
-                ActivityCompat.requestPermissions(this, deniedPermissions.toArray(new String[deniedPermissions.size()]), MY_PERMISSIONS_REQUEST);
+                ActivityCompat.requestPermissions(this, deniedPermissions.toArray(
+                    new String[deniedPermissions.size()]), MY_PERMISSIONS_REQUEST);
             }
         }
     }

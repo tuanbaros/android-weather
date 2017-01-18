@@ -49,17 +49,15 @@ public class Variables {
 
     public static boolean fromNotify = false;
 
-    public static boolean isFullScreen = false;
-
     public static HashMap<String, Integer> WEATHER_ICON = new HashMap<>();
 
-    public static String[] ICON_ID = {
+    private static String[] ICON_ID = {
         "01d", "02d", "03d", "04d", "09d", "10d", "11d",
         "13d", "50d", "01n", "02n", "03n", "04n", "09n",
         "10n", "11n", "13n", "50n"
     };
 
-    public static int[] ICON = {
+    private static int[] ICON = {
         R.drawable.ic_01d, R.drawable.ic_02d, R.drawable.ic_03d, R.drawable.ic_04d,
         R.drawable.ic_09d, R.drawable.ic_10d, R.drawable.ic_11d, R.drawable.ic_13d,
         R.drawable.ic_50d, R.drawable.ic_01n, R.drawable.ic_02n, R.drawable.ic_03n,

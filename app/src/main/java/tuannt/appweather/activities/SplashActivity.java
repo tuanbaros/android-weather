@@ -11,14 +11,14 @@ import android.widget.RelativeLayout;
 import java.util.Calendar;
 
 import tuannt.appweather.R;
-import tuannt.appweather.permission.PermissionActivity;
-import tuannt.appweather.permission.RegisterPermission;
 import tuannt.appweather.tasks.GetCityWeather;
 import tuannt.appweather.utils.API;
 import tuannt.appweather.utils.DBAdapter;
 import tuannt.appweather.utils.MyLocation;
 import tuannt.appweather.utils.MyMethods;
 import tuannt.appweather.utils.Variables;
+import tuannt.simplepermission.PermissionActivity;
+import tuannt.simplepermission.RegisterPermission;
 
 @RegisterPermission(permissions = {
     Manifest.permission.ACCESS_COARSE_LOCATION,
