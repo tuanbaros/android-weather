@@ -181,6 +181,7 @@ public class MyLocation implements GoogleApiClient.ConnectionCallbacks,
                     if(dbAdapter.getAllRow().getCount() < 1){
                         intent = new Intent(context, FirstActivity.class);
                         context.startActivity(intent);
+                        dbAdapter.close();
                         context.finish();
                     }else{
                         Cursor cursor = dbAdapter.getAllRow();
@@ -189,6 +190,7 @@ public class MyLocation implements GoogleApiClient.ConnectionCallbacks,
                     }
 
                 }
+                dbAdapter.close();
             }
         });
 

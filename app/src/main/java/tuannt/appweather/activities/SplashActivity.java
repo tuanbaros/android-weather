@@ -1,6 +1,6 @@
 package tuannt.appweather.activities;
 
-import android.app.Activity;
+import android.Manifest;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 import java.util.Calendar;
 
 import tuannt.appweather.R;
+import tuannt.appweather.permission.PermissionActivity;
+import tuannt.appweather.permission.RegisterPermission;
 import tuannt.appweather.tasks.GetCityWeather;
 import tuannt.appweather.utils.API;
 import tuannt.appweather.utils.DBAdapter;
@@ -18,11 +20,15 @@ import tuannt.appweather.utils.MyLocation;
 import tuannt.appweather.utils.MyMethods;
 import tuannt.appweather.utils.Variables;
 
-public class SplashActivity extends Activity {
+@RegisterPermission(permissions = {
+    Manifest.permission.ACCESS_COARSE_LOCATION,
+    Manifest.permission.ACCESS_FINE_LOCATION
+})
+public class SplashActivity extends PermissionActivity {
 
-    MyLocation myLocation;
+    private MyLocation myLocation;
 
-    ImageView background;
+    private ImageView background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,11 @@ public class SplashActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
+        if (isGrantedPermission())
+            getCityIdAndCurrentWeather();
+    }
+
+    private void getCityIdAndCurrentWeather() {
         SharedPreferences sharedPreferences = getSharedPreferences("tuannt", MODE_PRIVATE);
         if (sharedPreferences.getBoolean("canAutoLocation", true)) {
             myLocation = new MyLocation(this);
@@ -58,17 +69,20 @@ public class SplashActivity extends Activity {
             cursor.moveToPosition(0);
             new GetCityWeather(this).execute(API.getApiCurrentCityById(cursor.getString(0)));
             Log.i("tuan", "tuan" + "http://content.amobi.vn/api/thoitiet/day?city_id=" + cursor.getString(0));
+            dbAdapter.close();
         }
-//        getMyLocation();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        SharedPreferences sharedPreferences = getSharedPreferences("tuannt", MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("canAutoLocation", true)) {
-            myLocation.disconnectApi(myLocation);
+        if (isGrantedPermission()) {
+            SharedPreferences sharedPreferences = getSharedPreferences("tuannt", MODE_PRIVATE);
+            if (sharedPreferences.getBoolean("canAutoLocation", true)) {
+                myLocation.disconnectApi(myLocation);
+            }
         }
+
     }
 
     private void setMainBackground() {
@@ -82,27 +96,9 @@ public class SplashActivity extends Activity {
 
     }
 
-//    private void getMyLocation(){
-//        gps = new GPSTracker(this);
-//
-//        // check if GPS enabled
-//        if(gps.canGetLocation()){
-//
-//            double latitude = gps.getLatitude();
-//            double longitude = gps.getLongitude();
-//
-////            latitude = 20.999939;
-////            longitude = 105.871320;
-//
-//            new GetCityWeather(this).execute("http://content.amobi.vn/api/thoitiet/get-location?lon=" + longitude + "&lat=" + latitude);
-//
-//            // \n is for new line
-//            Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-//        }else{
-//            // can't get location
-//            // GPS or Network is not enabled
-//            // Ask user to enable GPS/network in settings
-//            gps.showSettingsAlert();
-//        }
-//    }
+    @Override
+    public void onRequestPermissionDenied(String[] permission, int[] grantResults) {
+        // The permissions were denied
+        this.finish();
+    }
 }

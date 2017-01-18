@@ -80,16 +80,6 @@ public class MyMethods {
         mgr.showSoftInput(view, InputMethodManager.RESULT_SHOWN);
     }
 
-    public static void setIconStatus(ImageView view, String s){
-        switch(s){
-            case "light rain": view.setImageResource(R.drawable.light_rain); break;
-            case "moderate rain": view.setImageResource(R.drawable.moderate_rain); break;
-            case "clear sky": view.setImageResource(R.drawable.weather_image); break;
-            case "heavy intensity rain": view.setImageResource(R.drawable.heavy_rain); break;
-        }
-    }
-
-
     public static void setMyBackground(int position, View v){
         v.setBackgroundColor(Variables.colorBackground[position]);
     }

@@ -1,16 +1,19 @@
 package tuannt.appweather.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by tuan on 22/02/2016.
  */
 public class WeatherVideo {
 
+    @SerializedName("date")
     private String date;
-
+    @SerializedName("title")
     private String title;
-
+    @SerializedName("description")
     private String description;
-
+    @SerializedName("videoId")
     private String videoId;
 
     public String getVideoId() {

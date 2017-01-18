@@ -1,23 +1,17 @@
 package tuannt.appweather.utils;
 
 import android.graphics.Color;
-import android.support.v4.util.Pair;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
 
 import tuannt.appweather.R;
 import tuannt.appweather.adapters.LocationAdapter;
 import tuannt.appweather.adapters.NextDayAdapter;
 import tuannt.appweather.models.Setting;
 import tuannt.appweather.pagetransformers.DepthPageTransformer;
-import tuannt.appweather.pagetransformers.NonePageTransformer;
-import tuannt.appweather.pagetransformers.TestPageTransformer;
-import tuannt.appweather.pagetransformers.ZRotate30PageTransformer;
 import tuannt.appweather.pagetransformers.ZoomOutPageTransformer;
 
 /**

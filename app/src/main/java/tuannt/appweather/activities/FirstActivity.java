@@ -105,6 +105,7 @@ public class FirstActivity extends AppCompatActivity {
                         }
                     }
                 }
+                db.close();
                 break;
             }
         }
@@ -120,6 +121,7 @@ public class FirstActivity extends AppCompatActivity {
             c.moveToPosition(i);
             s[i] = c.getString(1);
         }
+        MyMethods.closeDB(dbAdapter);
         return s;
     }
 }

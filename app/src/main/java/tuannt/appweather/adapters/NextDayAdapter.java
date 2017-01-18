@@ -1,7 +1,6 @@
 package tuannt.appweather.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import tuannt.appweather.R;
 import tuannt.appweather.models.User;
 import tuannt.appweather.models.Weather;
-import tuannt.appweather.utils.API;
 import tuannt.appweather.utils.MyMethods;
 import tuannt.appweather.utils.Variables;
 
@@ -25,7 +21,7 @@ public class NextDayAdapter extends BaseAdapter {
 
     private User user;
 
-    LayoutInflater layoutInflater;
+    private LayoutInflater layoutInflater;
 
     public NextDayAdapter(Context context) {
         user = User.getInstance();
@@ -71,13 +67,8 @@ public class NextDayAdapter extends BaseAdapter {
         viewHolder.tvMin.setText(MyMethods.getCTemp(weather.getTemp_min()));
 
         viewHolder.ivIconStatus = (ImageView)convertView.findViewById(R.id.ivIconStatusWeather);
-        Picasso.with(parent.getContext()).load(Variables.WEATHER_ICON.get(weather.getIcon())).resize(125, 125)
-            .into
-            (viewHolder.ivIconStatus);
-        Log.i("abc", API.getApiIcon(weather.getIcon()));
+        viewHolder.ivIconStatus.setImageResource(Variables.WEATHER_ICON.get(weather.getIcon()));
         convertView.setTag(viewHolder);
-//        MyMethods.setIconStatus(viewHolder.ivIconStatus, weather.getDescription());
-
         return convertView;
     }
 

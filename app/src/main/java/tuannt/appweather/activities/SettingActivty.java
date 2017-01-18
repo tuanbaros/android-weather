@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -149,12 +148,6 @@ public class SettingActivty extends AppCompatActivity {
 
         popup.show();
 
-        if (popup.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener)
-        {
-            ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popup.getDragToOpenListener();
-            listener.getPopup().setVerticalOffset(-view.getHeight());
-            listener.getPopup().show();
-        }
     }
 
     public void changeTransformer(View view){
@@ -186,12 +179,6 @@ public class SettingActivty extends AppCompatActivity {
 
         popup.show();
 
-        if (popup.getDragToOpenListener() instanceof ListPopupWindow.ForwardingListener)
-        {
-            ListPopupWindow.ForwardingListener listener = (ListPopupWindow.ForwardingListener) popup.getDragToOpenListener();
-            listener.getPopup().setVerticalOffset(-view.getHeight());
-            listener.getPopup().show();
-        }
     }
 
     public void autoLocation(View view){

@@ -1,14 +1,20 @@
 package tuannt.appweather.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by tuannt on 17/01/2017.
  * Project: AppWeather
  * Package: tuannt.appweather.models
  */
 public class Main {
+    @SerializedName("temp")
     private String temp;
+    @SerializedName("humidity")
     private String humidity;
+    @SerializedName("temp_min")
     private String temp_min;
+    @SerializedName("temp_max")
     private String temp_max;
 
     public String getHumidity() {
