@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:paddingBottom="40dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/rlSearch"
+        android:background="@color/colorPrimary">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff">
+
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_centerVertical="true"
+                android:layout_width="48dp"
+                android:layout_height="53dp"
+                android:paddingRight="13dp"
+                android:paddingLeft="13dp"
+                android:paddingTop="15.5dp"
+                android:paddingBottom="15.5dp"
+                android:src="@drawable/back"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ivBack">
+
+                <ImageView
+                    android:id="@+id/ivDeleteAllCharacter"
+                    android:layout_width="48dp"
+                    android:layout_height="53dp"
+                    android:src="@drawable/delete"
+                    android:paddingRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="18.5dp"
+                    android:paddingBottom="18.5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/actvSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#666"
+                    android:hint="Tỉnh/Thành phố"
+                    android:singleLine="true"
+                    android:layout_toLeftOf="@+id/ivDeleteAllCharacter"
+                    android:textCursorDrawable="@null"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        
+    </RelativeLayout>
+
+</LinearLayout>
