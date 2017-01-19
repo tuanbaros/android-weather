@@ -14,7 +14,7 @@ gradle.properties
 .idea/
 .gradle/
 
-proguard-rules.pro
+#proguard-rules.pro
 gradlew
 gradlew.bat
 */build/
