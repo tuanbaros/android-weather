@@ -1,6 +1,5 @@
 package tuannt.appweather.fragments;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -85,7 +83,7 @@ public class ThirdFragment extends Fragment{
 
     public void onPause() {
         super.onPause();
-        if (youTubePlayer.isPlaying()) youTubePlayer.pause();
+        if (youTubePlayer != null && youTubePlayer.isPlaying()) youTubePlayer.pause();
     }
 
 

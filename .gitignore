@@ -25,3 +25,4 @@ gradle/
 *.swp
 app/src/androidTest/
 app/src/test/
+app/build
